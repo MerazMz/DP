@@ -1,12 +1,11 @@
 class Solution {
 public:
     vector<bool> prefixesDivBy5(vector<int>& nums) {
-        int n=nums.size();
-        vector<bool> ans(n,false);
+        vector<bool> ans;
         int prefix = 0;
-        for(int i=0;i<n;i++) {
-            prefix = (prefix * 2 + nums[i]) % 5;
-            ans[i] = (prefix == 0);
+        for(int num:nums) {
+            prefix = (prefix * 2 + num) % 5; //increase one bit ahead
+            ans.push_back(prefix == 0);
         }
 
         return ans;
